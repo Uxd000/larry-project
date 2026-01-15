@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cat Face Tracker</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Cat Face Tracker 😺</h1>
+
+<div class="container">
+
+  <div class="panel">
+    <h2>You</h2>
+    <img src="/video" class="video">
+  </div>
+
+  <div class="panel">
+    <h2>Cat Reaction</h2>
+    <img id="catImage" src="/static/assets/larry.jpeg">
+  </div>
+
+</div>
+
+<div class="controls">
+  <button class="stop" onclick="stopProgram()">Stop Program</button>
+  <button class="restart" onclick="restartProgram()">Restart Program</button>
+</div>
+
+<script>
+  async function updateCat() {
+    const res = await fetch("/cat");
+    const data = await res.json();
+    document.getElementById("catImage").src =
+      "/static/assets/" + data.cat;
+  }
+
+  async function stopProgram() {
+    await fetch("/stop", { method: "POST" });
+    alert("Program stopped. Close this tab.");
+  }
+
+  async function restartProgram() {
+    await fetch("/restart", { method: "POST" });
+    alert("Restarting program... Refresh page in a few seconds.");
+  }
+
+  setInterval(updateCat, 200);
+</script>
+
+</body>
+</html>

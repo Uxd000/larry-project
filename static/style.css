@@ -1,0 +1,56 @@
+body {
+  background: #0f0f0f;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.panel {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.video {
+  width: 480px;
+  border-radius: 10px;
+}
+
+#catImage {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.controls {
+  margin-top: 25px;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+button.stop {
+  background: crimson;
+  color: white;
+}
+
+button.restart {
+  background: seagreen;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.85;
+}
